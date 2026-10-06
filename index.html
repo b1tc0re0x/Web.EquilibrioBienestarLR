@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equilibrio y Bienestar LR | Trabajo Social Profesional</title>
+    <meta name="description"
+        content="Consultoría de Trabajo Social. Evaluación y Diagnóstico Social, Estudio Socioeconómico y Socioterapias. Atención confidencial para familias y personas.">
+    <meta name="author" content="Equilibrio y Bienestar LR">
+
+    <!-- Open Graph (para compartir en redes) -->
+    <meta property="og:title" content="Equilibrio y Bienestar LR">
+    <meta property="og:description" content="Cuidamos lo que más importa: tu bienestar y el de tu familia.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://equilibriobienestarlr.com">
+
+    <!-- Favicon básico -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+
+    <!-- Android / PWA -->
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Tipografías: Nunito (títulos) + Inter (texto) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ===== VARIABLES DE MARCA ===== */
+        :root {
+            --verde-salvia: #8FAE8B;
+            --verde-oscuro: #5F7F5C;
+            --azul-suave: #6C8EA4;
+            --azul-oscuro: #4A6B80;
+            --beige: #F5EFE6;
+            --beige-claro: #FBF8F3;
+            --gris-texto: #2E2E2E;
+            --gris-suave: #6B6B6B;
+            --blanco: #FFFFFF;
+            --sombra: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --sombra-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --radio: 16px;
+            --transicion: all 0.3s ease;
+        }
+
+        /* ===== RESET Y BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--gris-texto);
+            background-color: var(--beige-claro);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--gris-texto);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .contenedor {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== HEADER / NAVEGACIÓN ===== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(251, 248, 243, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(143, 174, 139, 0.15);
+            padding: 16px 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--verde-oscuro);
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo-texto {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-texto span:first-child {
+            font-size: 1.15rem;
+            color: var(--verde-oscuro);
+        }
+
+        .logo-texto span:last-child {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--azul-suave);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .menu {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .menu a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--gris-texto);
+            transition: var(--transicion);
+            position: relative;
+        }
+
+        .menu a:hover {
+            color: var(--verde-oscuro);
+        }
+
+        .menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--verde-salvia);
+            transition: var(--transicion);
+        }
+
+        .menu a:hover::after {
+            width: 100%;
+        }
+
+        /* Botón menú móvil */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: var(--gris-texto);
+            margin: 5px 0;
+            transition: var(--transicion);
+        }
+
+        /* ===== BOTONES ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            transition: var(--transicion);
+            text-align: center;
+        }
+
+        .btn-primario {
+            background-color: var(--verde-salvia);
+            color: var(--blanco);
+            box-shadow: 0 4px 15px rgba(143, 174, 139, 0.35);
+        }
+
+        .btn-primario:hover {
+            background-color: var(--verde-oscuro);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(143, 174, 139, 0.45);
+        }
+
+        .btn-secundario {
+            background-color: transparent;
+            color: var(--verde-oscuro);
+            border: 2px solid var(--verde-salvia);
+        }
+
+        .btn-secundario:hover {
+            background-color: var(--verde-salvia);
+            color: var(--blanco);
+            transform: translateY(-2px);
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: var(--blanco);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1DAF54;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+        }
+
+        .btn-whatsapp svg,
+        .btn-primario svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 80px 0 100px;
+            background: linear-gradient(135deg, var(--beige-claro) 0%, var(--beige) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(143, 174, 139, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            left: -100px;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(108, 142, 164, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-contenido {
+            position: relative;
+            z-index: 1;
+            max-width: 780px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-etiqueta {
+            display: inline-block;
+            background-color: rgba(143, 174, 139, 0.15);
+            color: var(--verde-oscuro);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.25rem);
+            margin-bottom: 20px;
+            color: var(--gris-texto);
+        }
+
+        .hero h1 span {
+            color: var(--verde-oscuro);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--gris-suave);
+            margin-bottom: 36px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-botones {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ===== SECCIONES GENERALES ===== */
+        section {
+            padding: 80px 0;
+        }
+
+        .seccion-titulo {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .seccion-titulo h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            margin-bottom: 12px;
+        }
+
+        .seccion-titulo p {
+            color: var(--gris-suave);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        /* ===== PRESENTACIÓN ===== */
+        .presentacion {
+            background-color: var(--blanco);
+        }
+
+        .presentacion-contenido {
+            max-width: 980px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(240px, 0.85fr) minmax(0, 1.5fr);
+            align-items: center;
+            gap: 48px;
+            text-align: left;
+        }
+
+        .presentacion-contenido .icono {
+            width: 100%;
+            max-width: 320px;
+            aspect-ratio: 3 / 4;
+            height: auto;
+            margin: 0 auto;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .presentacion-texto h2 {
+            margin-bottom: 24px;
+        }
+
+        .presentacion-contenido .icono img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            border-radius: inherit;
+        }
+
+        .presentacion-texto p {
+            font-size: 1.1rem;
+            color: var(--gris-suave);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .presentacion-texto p strong {
+            color: var(--verde-oscuro);
+            font-weight: 600;
+        }
+
+        /* ===== SERVICIOS ===== */
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 28px;
+        }
+
+        .servicio-card {
+            background-color: var(--blanco);
+            border-radius: var(--radio);
+            padding: 36px 32px;
+            box-shadow: var(--sombra);
+            transition: var(--transicion);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(143, 174, 139, 0.1);
+        }
+
+        .servicio-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--sombra-hover);
+        }
+
+        .servicio-icono {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--verde-salvia), var(--azul-suave));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: var(--blanco);
+        }
+
+        .servicio-icono svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .servicio-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 14px;
+            color: var(--gris-texto);
+        }
+
+        .servicio-card .descripcion {
+            color: var(--gris-suave);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .servicio-detalles {
+            list-style: none;
+            margin-bottom: 28px;
+            border-top: 1px solid rgba(143, 174, 139, 0.15);
+            padding-top: 20px;
+        }
+
+        .servicio-detalles li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--gris-suave);
+            margin-bottom: 10px;
+        }
+
+        .servicio-detalles li strong {
+            color: var(--gris-texto);
+            font-weight: 600;
+            min-width: 90px;
+        }
+
+        .servicio-detalles li svg {
+            width: 16px;
+            height: 16px;
+            color: var(--verde-salvia);
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+
+        /* ===== CÓMO TRABAJAMOS ===== */
+        .como-trabajamos {
+            background-color: var(--blanco);
+        }
+
+        .pasos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 32px;
+            position: relative;
+        }
+
+        .paso {
+            text-align: center;
+            position: relative;
+        }
+
+        .paso-numero {
+            width: 56px;
+            height: 56px;
+            background-color: var(--beige);
+            border: 2px solid var(--verde-salvia);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 1.35rem;
+            color: var(--verde-oscuro);
+        }
+
+        .paso h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .paso p {
+            color: var(--gris-suave);
+            font-size: 0.92rem;
+        }
+
+        /* ===== CONTACTO / CIERRE ===== */
+        .contacto {
+            background: linear-gradient(135deg, var(--verde-salvia) 0%, var(--azul-suave) 100%);
+            color: var(--blanco);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contacto::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .contacto-contenido {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contacto h2 {
+            color: var(--blanco);
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            margin-bottom: 16px;
+        }
+
+        .contacto p {
+            font-size: 1.1rem;
+            margin-bottom: 36px;
+            opacity: 0.95;
+        }
+
+        .contacto-botones {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+
+        .contacto .btn-primario {
+            background-color: var(--blanco);
+            color: var(--verde-oscuro);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .contacto .btn-primario:hover {
+            background-color: var(--beige);
+            color: var(--verde-oscuro);
+        }
+
+        .contacto .btn-whatsapp {
+            background-color: #25D366;
+            color: var(--blanco);
+        }
+
+        .contacto .btn-whatsapp:hover {
+            background-color: #1DAF54;
+        }
+
+        .confidencialidad {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .confidencialidad svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: var(--gris-texto);
+            color: rgba(255, 255, 255, 0.75);
+            padding: 40px 0 30px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer .footer-logo {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--blanco);
+            margin-bottom: 12px;
+        }
+
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-links a {
+            transition: var(--transicion);
+        }
+
+        footer .footer-links a:hover {
+            color: var(--verde-salvia);
+        }
+
+        footer .copyright {
+            font-size: 0.82rem;
+            opacity: 0.7;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 8px;
+        }
+
+        /* ===== BOTÓN FLOTANTE WHATSAPP ===== */
+        .whatsapp-flotante {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: var(--transicion);
+            animation: pulso 2.5s infinite;
+        }
+
+        .whatsapp-flotante:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.55);
+        }
+
+        .whatsapp-flotante svg {
+            width: 32px;
+            height: 32px;
+            color: var(--blanco);
+        }
+
+        @keyframes pulso {
+
+            0%,
+            100% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 12px rgba(37, 211, 102, 0.1);
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .menu {
+                position: fixed;
+                top: 73px;
+                left: 0;
+                right: 0;
+                background-color: var(--blanco);
+                flex-direction: column;
+                gap: 0;
+                padding: 20px 0;
+                box-shadow: var(--sombra);
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+                z-index: 999;
+            }
+
+            .menu.activo {
+                transform: translateY(0);
+            }
+
+            .menu li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .menu a {
+                display: block;
+                padding: 14px 24px;
+                font-size: 1rem;
+            }
+
+            .menu a::after {
+                display: none;
+            }
+
+            .hero {
+                padding: 60px 0 80px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .servicio-card {
+                padding: 28px 24px;
+            }
+
+            .presentacion-contenido {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                text-align: center;
+            }
+
+            .presentacion-contenido .icono {
+                width: min(72vw, 280px);
+            }
+
+            .hero-botones,
+            .contacto-botones {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .whatsapp-flotante {
+                width: 56px;
+                height: 56px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contenedor {
+                padding: 0 18px;
+            }
+
+            .logo-texto span:first-child {
+                font-size: 1rem;
+            }
+
+            .logo-texto span:last-child {
+                font-size: 0.65rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="contenedor nav">
+            <a href="#" class="logo">
+                <img src="assets/img/logo.png" alt="Equilibrio y Bienestar LR">
+                <div class="logo-texto">
+                    <span>Equilibrio & Bienestar LR</span>
+                    <span>Trabajo Social</span>
+                </div>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="menu" id="menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#como-trabajamos">Cómo trabajamos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="inicio">
+        <div class="contenedor">
+            <div class="hero-contenido">
+                <span class="hero-etiqueta">Consultoría en Trabajo Social</span>
+                <h1>Cuidamos lo que más importa: <span>tu bienestar y el de tu familia</span></h1>
+                <p>Acompañamiento profesional, humano y confidencial para familias y personas que buscan claridad,
+                    equilibrio y bienestar en los momentos que más lo necesitan.</p>
+                <div class="hero-botones">
+                    <a href="https://wa.me/50664427600?text=Hola%2C%20vi%20su%20sitio%20web%20y%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios."
+                        class="btn btn-whatsapp" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
+                        Conversemos por WhatsApp
+                    </a>
+                    <a href="#servicios" class="btn btn-secundario">Ver servicios</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRESENTACIÓN ===== -->
+    <section class="presentacion" id="sobre-mi">
+        <div class="contenedor">
+            <div class="presentacion-contenido">
+                <div class="icono">
+                    <img src="assets/img/RosaLina.jpg" alt="Rosa Lina">
+                </div>
+                <div class="presentacion-texto">
+                    <h2>¿Quién te acompaña?</h2>
+                    <p>Hola, mi nombre es <b>Rosa Lina</b> y en <strong>Equilibrio y Bienestar LR</strong> creemos que cada
+                        familia y cada persona merece un
+                        espacio seguro para ser escuchado o escuchada.</p>
+                    <p>Acompaño procesos desde el Trabajo Social con <strong>profesionalismo, empatía y
+                            confidencialidad</strong>, buscando siempre tu bienestar y el de los tuyos. Mi labor es
+                        brindarte herramientas, claridad y contención para que puedas tomar decisiones informadas y avanzar
+                        con paso firme.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICIOS ===== -->
+    <section id="servicios">
+        <div class="contenedor">
+            <div class="seccion-titulo">
+                <h2>Nuestros servicios</h2>
+                <p>Tres formas de acompañarte, adaptadas a lo que tú y tu familia necesitan.</p>
+            </div>
+
+            <div class="servicios-grid">
+                <!-- Servicio 1 -->
+                <article class="servicio-card">
+                    <div class="servicio-icono">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 11l3 3L22 4" />
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                        </svg>
+                    </div>
+                    <h3>Evaluación y Diagnóstico Social</h3>
+                    <p class="descripcion">Analizamos la situación familiar integral: dinámica relacional, redes de
+                        apoyo, factores de riesgo y protección. Entregamos un informe profesional con recomendaciones.
+                    </p>
+                    <ul class="servicio-detalles">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg><span><strong>Dirigido a:</strong> Familias, instituciones, juzgados</span></li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg><span><strong>Modalidad:</strong> Virtual / Presencial en Guanacaste </span></li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg><span><strong>Duración:</strong> 2–3 ó hasta 10 sesiones</span></li>
+                    </ul>
+                    <a href="https://wa.me/50664427600?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20Evaluaci%C3%B3n%20y%20Diagn%C3%B3stico%20Social.%20%C2%BFMe%20pueden%20orientar%3F"
+                        class="btn btn-primario" target="_blank" rel="noopener">Quiero más información</a>
+                </article>
+
+                <!-- Servicio 2 -->
+                <article class="servicio-card">
+                    <div class="servicio-icono">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="1" x2="12" y2="23" />
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                        </svg>
+                    </div>
+                    <h3>Estudio Socioeconómico</h3>
+                    <p class="descripcion">Realizamos el análisis financiero del entorno familiar: ingresos, egresos,
+                        capacidad de pago, condiciones de vida y vulnerabilidad. Incluye informe técnico.</p>
+                    <ul class="servicio-detalles">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg><span><strong>Dirigido a:</strong> Familias, instituciones, procesos legales</span>
+                        </li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg><span><strong>Modalidad:</strong> Virtual / Presencial en Guanacaste</span></li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg><span><strong>Duración:</strong> 1–2 sesiones + informe</span></li>
+                    </ul>
+                    <a href="https://wa.me/50664427600?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20el%20Estudio%20Socioecon%C3%B3mico.%20%C2%BFPodr%C3%ADan%20ayudarme%3F"
+                        class="btn btn-primario" target="_blank" rel="noopener">Quiero más información</a>
+                </article>
+
+                <!-- Servicio 3 -->
+                <article class="servicio-card">
+                    <div class="servicio-icono">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                        </svg>
+                    </div>
+                    <h3>Socioterapias</h3>
+                    <p class="descripcion">Brindamos acompañamiento individual y grupal ante situaciones de violencia
+                        intrafamiliar, duelo, crisis emocionales y conflictos familiares. Espacio de contención y
+                        herramientas para sanar.</p>
+                    <ul class="servicio-detalles">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg><span><strong>Dirigido a:</strong> Personas, familias, grupos</span></li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg><span><strong>Modalidad:</strong> Virtual / Presencial en Guanacaste</span></li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg><span><strong>Duración:</strong> Según proceso</span></li>
+                    </ul>
+                    <a href="https://wa.me/50664427600?text=Hola%2C%20me%20interesa%20el%20acompa%C3%B1amiento%20en%20Socioterapias.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20detalles%3F"
+                        class="btn btn-primario" target="_blank" rel="noopener">Quiero más información</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CÓMO TRABAJAMOS ===== -->
+    <section class="como-trabajamos" id="como-trabajamos">
+        <div class="contenedor">
+            <div class="seccion-titulo">
+                <h2>¿Cómo trabajamos?</h2>
+                <p>Un proceso claro, humano y profesional en cada etapa.</p>
+            </div>
+
+            <div class="pasos-grid">
+                <div class="paso">
+                    <div class="paso-numero">1</div>
+                    <h4>Contacto inicial</h4>
+                    <p>Nos escribes por WhatsApp y conversamos brevemente sobre lo que necesitas.</p>
+                </div>
+                <div class="paso">
+                    <div class="paso-numero">2</div>
+                    <h4>Conversación inicial</h4>
+                    <p>Agendamos una primera sesión para conocernos y entender tu situación.</p>
+                </div>
+                <div class="paso">
+                    <div class="paso-numero">3</div>
+                    <h4>Sesiones de trabajo</h4>
+                    <p>Realizamos las sesiones necesarias según el servicio que elijas.</p>
+                </div>
+                <div class="paso">
+                    <div class="paso-numero">4</div>
+                    <h4>Informe y seguimiento</h4>
+                    <p>Recibes un informe profesional con recomendaciones y acompañamiento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACTO ===== -->
+    <section class="contacto" id="contacto">
+        <div class="contenedor">
+            <div class="contacto-contenido">
+                <h2>Estamos para escucharte</h2>
+                <p>Escríbenos por WhatsApp y con gusto te orientamos. El primer paso es conversar.</p>
+                <div class="contacto-botones">
+                    <a href="https://wa.me/50664427600?text=Hola%2C%20vi%20su%20sitio%20web%20y%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios."
+                        class="btn btn-whatsapp" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
+                        Escribir por WhatsApp
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61594473823153" class="btn btn-primario"
+                        target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                        Visita nuestro Facebook
+                    </a>
+                </div>
+                <div class="confidencialidad">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                    </svg>
+                    Atención confidencial
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="contenedor">
+            <div class="footer-logo">Equilibrio y Bienestar LR</div>
+            <div class="footer-links">
+                <a href="https://wa.me/50664427600" target="_blank" rel="noopener">WhatsApp: 6442-7600</a>
+                <a href="https://www.facebook.com/profile.php?id=61594473823153" target="_blank"
+                    rel="noopener">Facebook</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+            <div class="copyright">
+                © <span id="anio"></span> Equilibrio y Bienestar LR. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== BOTÓN FLOTANTE WHATSAPP ===== -->
+    <a href="https://wa.me/50664427600?text=Hola%2C%20vi%20su%20sitio%20web%20y%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n."
+        class="whatsapp-flotante" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <!-- ===== SCRIPT: Menú móvil + Año dinámico ===== -->
+    <script>
+        // Menú móvil
+        const menuToggle = document.getElementById('menuToggle');
+        const menu = document.getElementById('menu');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('activo');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.menu a').forEach(enlace => {
+            enlace.addEventListener('click', () => {
+                menu.classList.remove('activo');
+            });
+        });
+
+        // Año dinámico en el footer
+        document.getElementById('anio').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+
+</html>
